@@ -6,6 +6,7 @@ use Janyk\Soundcloud\Requests\Tracks\CreateComment;
 use Janyk\Soundcloud\Requests\Tracks\DeleteTrack;
 use Janyk\Soundcloud\Requests\Tracks\GetTrack;
 use Janyk\Soundcloud\Requests\Tracks\GetTrackComments;
+use Janyk\Soundcloud\Requests\Tracks\GetTrackPlaylists;
 use Janyk\Soundcloud\Requests\Tracks\RelatedTracks;
 use Janyk\Soundcloud\Requests\Tracks\TrackFavoriters;
 use Janyk\Soundcloud\Requests\Tracks\TrackReposters;
@@ -65,6 +66,19 @@ class Tracks extends Resource
     public function getTrackComments(int $trackId, ?int $limit, ?int $offset, ?bool $linkedPartitioning): Response
     {
         return $this->connector->send(new GetTrackComments($trackId, $limit, $offset, $linkedPartitioning));
+    }
+
+
+
+    /**
+     * @param  int  $trackId  SoundCloud Track id
+     * @param  int  $limit  Number of results to return in the collection.
+     * @param  int  $offset  Offset of first result. Deprecated, use `linked_partitioning` instead.
+     * @param  bool  $linkedPartitioning  Returns paginated collection of items (recommended, returning a list without pagination is deprecated and should not be used)
+     */
+    public function getTrackPlaylists(int $trackId, ?int $limit, ?int $offset, ?bool $linkedPartitioning): Response
+    {
+        return $this->connector->send(new GetTrackPlaylists($trackId, $limit, $offset, $linkedPartitioning));
     }
 
     /**
