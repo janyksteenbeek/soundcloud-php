@@ -1,0 +1,23 @@
+{
+    "name": "janyksteenbeek/soundcloud",
+    "description": "PHP SDK for Soundcloud API",
+    "type": "library",
+    "require": {
+        "saloonphp/saloon": "^3.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Janyk\\Soundcloud\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Janyk",
+            "email": "me@janyk.dev"
+        }
+    ],
+    "require-dev": {
+        "laravel/pint": "^1.21"
+    }
+}
